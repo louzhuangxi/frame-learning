@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    name: songSource
+    url: jdbc:mysql://localhost:3306/mysql?serverTimezone=UTC
+    username: root
+    password: root
+  application:
+    name: bootrabbitprovider
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+server:
+  port: 8111
+mybatis:
+  mapper-locations:
+  type-aliases-package:
+
+
+
+
