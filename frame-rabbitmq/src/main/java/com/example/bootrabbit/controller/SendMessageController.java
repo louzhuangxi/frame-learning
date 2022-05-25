@@ -9,14 +9,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-public class sendMessage {
+public class SendMessageController {
     @Autowired
     RabbitTemplate rabbitTemplate;
     @RequestMapping("/sendMessageTest")
     public String sendMessageTest(){
-        Map<String , Object> _map = new HashMap<>();
         String s = "aaa";
-        _map.put("aaa",s);
         rabbitTemplate.convertAndSend("TestDirectExchange","TestDirectRouting",s);
         return "success";
     }
