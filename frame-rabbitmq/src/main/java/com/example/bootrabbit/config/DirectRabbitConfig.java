@@ -1,5 +1,7 @@
 package com.example.bootrabbit.config;
 
+import org.springframework.amqp.core.Binding;
+import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;
@@ -20,6 +22,12 @@ public class DirectRabbitConfig {
     DirectExchange TestDirectExchange() {
         return new DirectExchange("TestDirectExchange", true, false);
     }
+
+    @Bean
+    Binding bindingDirect() {
+        return BindingBuilder.bind(TestDirectQueue()).to(TestDirectExchange()).with("TestDirectRouting");
+    }
+
     @Bean
     DirectExchange lonelyDirectExchange() {
         return new DirectExchange("lonelyDirectExchange");
