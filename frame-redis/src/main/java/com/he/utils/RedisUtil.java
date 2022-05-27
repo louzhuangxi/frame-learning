@@ -519,5 +519,12 @@ public class RedisUtil {
         redisTemplate.opsForList().rightPop(key, timeout, unit);
     }
 
-
+    /**
+     * 判断缓存中是否有对应的value
+     * @param key
+     * @return
+     */
+    public boolean exists(final String key) {
+        return redisTemplate.hasKey(key);
+    }
 }
